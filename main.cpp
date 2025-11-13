@@ -31,11 +31,14 @@ void addContactFromInput(AddressBook& book)
 
 void removeContact(AddressBook& book) 
 {
-    std::string first;
+    std::string first, last;
     std::cout << "Enter first name of the contact to remove: ";
     std::getline(std::cin, first);
 
-    book.removeContact(first);
+    std::cout << "Enter last name to remove: ";
+    std::getline(std::cin, last);
+
+    book.removeContact(first, last);
     book.displayAll();
 }
 

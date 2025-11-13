@@ -7,16 +7,30 @@ void AddressBook::addContact(std::shared_ptr<Contact> contact)
 	sortRequired = true;
 }
 
-void AddressBook::removeContact(const std::string& firstName)
+void AddressBook::removeContact(const std::string& firstName, 
+								const std::optional<std::string>& lastName)
 {
-	if (contactsByName.find(firstName) != contactsByName.end())
+	// With mulitple contacts with same first name, 
+	// ensure we delete the right contact by checking the last name
+	auto range = contactsByName.equal_range(firstName);
+
+	for(auto it = range.first; it != range.second; ++it)
 	{
-		contactsByName.erase(firstName);
-		sortRequired = true;
-	}
-	else
-	{
-		std::cout << "Contact " << firstName << " not found.\n";
+		bool foundMatch = false;
+
+		if (!lastName.has_value()) {
+			foundMatch = !it->second->getLastName().has_value();
+		}
+		else {
+			foundMatch = (it->second->getLastName().has_value() &&
+				*it->second->getLastName() == *lastName);
+		}
+
+		if (foundMatch) {
+			contactsByName.erase(it);   
+			sortRequired = false;
+			return;
+		}
 	}
 }
 

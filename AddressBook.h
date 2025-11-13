@@ -19,7 +19,7 @@ public:
     void addContact(std::shared_ptr<Contact> contact);
 
     // Remove by first name
-    void removeContact(const std::string& firstName);
+    void removeContact(const std::string& firstName, const std::optional<std::string>& last);
 
     // Search (returns nullptr if not found)
     std::vector<std::shared_ptr<Contact>> searchByName(const std::string& searchName) const;
