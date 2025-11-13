@@ -30,6 +30,27 @@ Contact class: stores first name, last name, and phone number
 
 AddressBook class: manages contacts, including add, remove, search, and sorted display
 
+# How to Run
+
+- Clone the Repository from github link https://github.com/MeeraVasudevan/AddressBookProject.git and can be run from Visual Studio directly
+- Or can be run from bash using cmake. Added CMakeLists.txt to make it run on Windows, Linux, or macOS.
+
+Steps:
+1. git clone https://github.com/MeeraVasudevan/
+.git
+cd <repo-name>
+
+2.Build using cmake from terminal
+mkdir build
+cd build
+cmake ..
+cmake --build .
+
+The executable will be located at:
+Linux/macOS: build/bin/AddressBook
+Windows: build\bin\AddressBook.exe
+
+
 # Design Decisions
 
 - Case-insensitive Prefix search : Uses lowercase conversion for search and supports searching by the beginning of the first or last name
