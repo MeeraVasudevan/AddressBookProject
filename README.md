@@ -36,19 +36,17 @@ AddressBook class: manages contacts, including add, remove, search, and sorted d
 - Or can be run from bash using cmake. Added CMakeLists.txt to make it run on Windows, Linux, or macOS.
 
 Steps:
-1. git clone https://github.com/MeeraVasudevan/
-.git
-cd <repo-name>
-
-2.Build using cmake from terminal
-mkdir build
-cd build
-cmake ..
-cmake --build .
+1. git clone https://github.com/MeeraVasudevan/AddressBookProject.git
+2. cd AddressBookProject
+3. Build using cmake from terminal
+- mkdir build
+- cd build
+- cmake ..
+- cmake --build .
 
 The executable will be located at:
-Linux/macOS: build/bin/AddressBook
-Windows: build\bin\AddressBook.exe
+- Linux/macOS: build/bin/AddressBook
+- Windows: build\bin\AddressBook.exe
 
 
 # Design Decisions
